@@ -4,10 +4,10 @@
     .band{animation:band 7s linear infinite}
     @keyframes band{from{transform:translateY(0)}to{transform:translateY(390px)}}
     .on{animation:on 1.5s ease-out both}
-    @keyframes on{0%{opacity:0}8%{opacity:.85}11%{opacity:.15}15%{opacity:1}18%{opacity:.55}24%,100%{opacity:1}}
+    @keyframes on{0%{opacity:.6}7%{opacity:1}10%{opacity:.35}14%{opacity:1}17%{opacity:.7}22%,100%{opacity:1}}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important}}
     .cur{animation:blink 1.05s steps(1) infinite}
     @keyframes blink{50%{opacity:0}}
-    .dot{animation:blink 1.4s steps(1) infinite}
   </style>
   
   <defs>
@@ -31,7 +31,7 @@
   <rect width="560" height="230" rx="22" fill="#0A0E16"/>
   <rect x="14" y="14" width="532" height="202" rx="16" fill="url(#cg)"/>
   <g clip-path="url(#cc)">
-    <rect class="band" x="0" y="-160" width="560" height="160" fill="url(#cb)"/>
+    
   </g>
   <text x="44" y="78" font-size="30" font-weight="800" fill="#FFB000" letter-spacing="2" filter="url(#glow)">▸ SILUA</text>
   <rect x="350.96000000000004" y="50" width="165.04" height="34" rx="5" fill="none" stroke="#B57F00" stroke-width="1.8"/>

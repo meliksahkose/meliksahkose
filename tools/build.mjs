@@ -31,7 +31,7 @@ const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, 
 const CH = 0.6; // JetBrains Mono: her karakter 0,6 em
 
 /** Ekran: çerçeve + sıcak radyal zemin + tarama çizgileri + yukarıdan aşağı kayan ışık bandı */
-const screen = (w, h, id) => `
+const screen = (w, h, id, band = false) => `
   <defs>
     <radialGradient id="${id}g" cx="50%" cy="45%" r="75%">
       <stop offset="0" stop-color="${C.screenIn}"/><stop offset="1" stop-color="${C.screenOut}"/>
@@ -53,7 +53,7 @@ const screen = (w, h, id) => `
   <rect width="${w}" height="${h}" rx="22" fill="${C.frame}"/>
   <rect x="14" y="14" width="${w - 28}" height="${h - 28}" rx="16" fill="url(#${id}g)"/>
   <g clip-path="url(#${id}c)">
-    <rect class="band" x="0" y="-160" width="${w}" height="160" fill="url(#${id}b)"/>
+    ${band ? `<rect class="band" x="0" y="-160" width="${w}" height="160" fill="url(#${id}b)"/>` : ""}
   </g>`;
 
 const overlay = (w, h, id) => `
@@ -70,7 +70,8 @@ const baseCss = (h) => `
     .band{animation:band 7s linear infinite}
     @keyframes band{from{transform:translateY(0)}to{transform:translateY(${h + 160}px)}}
     .on{animation:on 1.5s ease-out both}
-    @keyframes on{0%{opacity:0}8%{opacity:.85}11%{opacity:.15}15%{opacity:1}18%{opacity:.55}24%,100%{opacity:1}}
+    @keyframes on{0%{opacity:.6}7%{opacity:1}10%{opacity:.35}14%{opacity:1}17%{opacity:.7}22%,100%{opacity:1}}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important}}
     .cur{animation:blink 1.05s steps(1) infinite}
     @keyframes blink{50%{opacity:0}}`;
 
@@ -83,7 +84,7 @@ const baseCss = (h) => `
         "assets/banner.svg",
         `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-label="İbrahim Melikşah Köse — Co-founder at MelberLabs, software engineer">
   <style>${fontFace(400, 700, 800)}${baseCss(h)}</style>
-  ${screen(w, h, "a")}
+  ${screen(w, h, "a", true)}
   <g class="on">
     ${brackets(52, 52, w - 52, h - 52)}
     ${t(98, 17, 400, C.dim, 6, "MELBERLABS  ·  INDEPENDENT PRODUCT STUDIO  ·  TÜRKİYE")}
@@ -228,12 +229,11 @@ for (const p of projects) {
         `assets/cards/${p.id}.svg`,
         `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-label="${p.name}: ${esc(p.desc.join(" "))}">
   <style>${fontFace(400, 800)}${baseCss(h)}
-    .dot{animation:blink 1.4s steps(1) infinite}
   </style>
   ${screen(w, h, "c")}
   <text x="44" y="78" font-size="30" font-weight="800" fill="${C.amber}" letter-spacing="2" filter="url(#glow)">▸ ${p.name}</text>
   <rect x="${px}" y="50" width="${pw}" height="34" rx="5" fill="${hot ? C.amber : "none"}" stroke="${p.status === "BUILDING" ? C.dim : C.amber}" stroke-width="1.8"/>
-  ${hot ? `<circle class="dot" cx="${px + 18}" cy="67" r="5" fill="${C.ink}"/>` : ""}
+  ${hot ? `<circle cx="${px + 18}" cy="67" r="5" fill="${C.ink}"/>` : ""}
   <text x="${px + pw / 2 + (hot ? 8 : 0)}" y="72.5" text-anchor="middle" font-size="13" font-weight="800" letter-spacing="1.5" fill="${hot ? C.ink : p.status === "BUILDING" ? C.dim : C.amber}">${label}</text>
   <text x="44" y="124" font-size="19" fill="${C.text}">${esc(p.desc[0])}</text>
   <text x="44" y="152" font-size="19" fill="${C.text}">${esc(p.desc[1])}</text>
@@ -290,7 +290,7 @@ for (const [id, title] of [
         `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-label="Stack: React Native, Expo, TypeScript, Next.js, React, Node.js, Python, FastAPI, PostgreSQL, PostGIS, Supabase, Docker, Java">
   <style>${fontFace(400, 800)}${baseCss(h)}</style>
   ${screen(w, h, "s")}
-  <g class="on">${rows}</g>
+  ${rows}
   ${overlay(w, h, "s")}
 </svg>`,
     );
