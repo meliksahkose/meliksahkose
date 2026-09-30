@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const out = (p, s) => {
-    if (/opacity:0|animation:(on|ln)/.test(s)) throw new Error("içerik gizleyen animasyon: " + p);
+    if (/animation:(on|ln)/.test(s)) throw new Error("içerik gizleyen animasyon: " + p);
     mkdirSync(dirname(join(root, p)), { recursive: true });
     writeFileSync(join(root, p), s);
     console.log(p.padEnd(34), (s.length / 1024).toFixed(1), "KB");

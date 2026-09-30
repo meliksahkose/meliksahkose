@@ -3,8 +3,6 @@
     text{font-family:J,'JetBrains Mono',Consolas,monospace}
     .band{animation:band 7s linear infinite}
     @keyframes band{from{transform:translateY(0)}to{transform:translateY(480px)}}
-    .on{animation:on 1.5s ease-out both}
-    @keyframes on{0%{opacity:.6}7%{opacity:1}10%{opacity:.35}14%{opacity:1}17%{opacity:.7}22%,100%{opacity:1}}
     @media (prefers-reduced-motion:reduce){*{animation:none!important}}
     .cur{animation:blink 1.05s steps(1) infinite}
     @keyframes blink{50%{opacity:0}}</style>
