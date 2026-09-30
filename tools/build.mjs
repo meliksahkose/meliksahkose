@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const out = (p, s) => {
+    if (/opacity:0|animation:(on|ln)/.test(s)) throw new Error("içerik gizleyen animasyon: " + p);
     mkdirSync(dirname(join(root, p)), { recursive: true });
     writeFileSync(join(root, p), s);
     console.log(p.padEnd(34), (s.length / 1024).toFixed(1), "KB");
@@ -69,8 +70,6 @@ const baseCss = (h) => `
     text{font-family:J,'JetBrains Mono',Consolas,monospace}
     .band{animation:band 7s linear infinite}
     @keyframes band{from{transform:translateY(0)}to{transform:translateY(${h + 160}px)}}
-    .on{animation:on 1.5s ease-out both}
-    @keyframes on{0%{opacity:.6}7%{opacity:1}10%{opacity:.35}14%{opacity:1}17%{opacity:.7}22%,100%{opacity:1}}
     @media (prefers-reduced-motion:reduce){*{animation:none!important}}
     .cur{animation:blink 1.05s steps(1) infinite}
     @keyframes blink{50%{opacity:0}}`;
@@ -197,8 +196,6 @@ const pill = { LIVE: "   LIVE   ", SHIPPING: " SHIPPING ", BUILDING: " BUILDING 
         "assets/terminal.svg",
         `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-label="System status: Ocupy, Manastra, Nightbook and GlowMate shipping; Sideline live; Silua, Teneffüs and Astrio in development">
   <style>${fontFace(400, 700)}${baseCss(h)}
-    .ln{animation:ln .08s linear backwards}
-    @keyframes ln{from{opacity:0}to{opacity:1}}
   </style>
   ${screen(w, h, "t")}
   <g class="on">
