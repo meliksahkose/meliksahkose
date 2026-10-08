@@ -6,7 +6,7 @@
   <img src="assets/terminal.svg" width="100%" alt="MelberLabs system status: Ocupy, Manastra, Kelvia, DreamVia, Tutrix, Astrio, Teneffüs, Sideline and the content engine are live" />
 </p>
 
-I build AI and automation systems that people use every day, and I co-founded **[MelberLabs](https://melberlabs.com)**, an independent product studio from Türkiye. I have built 7 mobile apps there as the sole developer, plus the AI content engine that runs their social media. I hold a B.Sc. in Software Engineering from **Işık University**. I captained the **Işık Chargers** American football team for three seasons, now coach its linebackers, and built the team's platform.
+I build AI and automation systems that people use every day, and I co-founded **[MelberLabs](https://melberlabs.com)**, an independent product studio from Türkiye. I have built 7 mobile apps there as the sole developer, plus the AI content engine that runs their social media. I hold a B.Sc. in Software Engineering from **Işık University**. I captained the **Işık Chargers** American football team for three seasons, am now its assistant coach, and built the team's platform.
 
 Source code lives in private repositories. The cards link to the products or to case-study repos that explain how each one is built.
 

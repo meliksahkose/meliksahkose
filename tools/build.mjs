@@ -90,7 +90,7 @@ const baseCss = (h) => `
     ${t(184, 64, 800, C.amber, 6, "İBRAHİM MELİKŞAH KÖSE", 'filter="url(#glow)"')}
     <line x1="330" y1="214" x2="${w - 330}" y2="214" stroke="${C.dim}" stroke-width="1.5"/>
     ${t(262, 25, 700, C.hi, 4, "CO-FOUNDER @ MELBERLABS  ·  SOFTWARE ENGINEER", 'filter="url(#glow)"')}
-    ${t(310, 17, 400, C.dim, 3, `&gt; AI &amp; AUTOMATION  ·  LB COACH @ IŞIK CHARGERS <tspan class="cur" fill="${C.amber}">█</tspan>`)}
+    ${t(310, 17, 400, C.dim, 3, `&gt; AI &amp; AUTOMATION  ·  ASSISTANT COACH @ IŞIK CHARGERS <tspan class="cur" fill="${C.amber}">█</tspan>`)}
   </g>
   ${overlay(w, h, "a")}
 </svg>`,
@@ -170,7 +170,7 @@ const pill = { LIVE: "   LIVE   ", SHIPPING: " SHIPPING ", BUILDING: " BUILDING 
         { s: hdr + "2026.10".padStart(cols - hdr.length), c: C.hi, wt: 700 },
         { s: "  " + "─".repeat(cols - 2), c: C.faint },
         ...projects.map((p) => ({ s: row(p.id === "teneffus" ? "teneffüs" : p.id, p.term, pill[p.status]), status: p.status })),
-        { s: row("lb-coach", "linebackers · Işık Chargers", pill.FIELD), status: "FIELD" },
+        { s: row("coach", "assistant coach · Işık Chargers", pill.FIELD), status: "FIELD" },
         { s: "" },
         { s: "  9 products · 2 founders · 12 languages · shipping weekly", c: C.dim },
     ];
