@@ -36,7 +36,7 @@
     <text x="640" y="184" text-anchor="middle" font-size="64" font-weight="800" fill="#FFB000" letter-spacing="6" filter="url(#glow)">İBRAHİM MELİKŞAH KÖSE</text>
     <line x1="330" y1="214" x2="950" y2="214" stroke="#B57F00" stroke-width="1.5"/>
     <text x="640" y="262" text-anchor="middle" font-size="25" font-weight="700" fill="#FFD166" letter-spacing="4" filter="url(#glow)">CO-FOUNDER @ MELBERLABS  ·  SOFTWARE ENGINEER</text>
-    <text x="640" y="310" text-anchor="middle" font-size="17" font-weight="400" fill="#B57F00" letter-spacing="3" >&gt; SOFTWARE ENGINEERING @ IŞIK UNIVERSITY  ·  LB #45 @ IŞIK CHARGERS <tspan class="cur" fill="#FFB000">█</tspan></text>
+    <text x="640" y="310" text-anchor="middle" font-size="17" font-weight="400" fill="#B57F00" letter-spacing="3" >&gt; AI &amp; AUTOMATION  ·  LB COACH @ IŞIK CHARGERS <tspan class="cur" fill="#FFB000">█</tspan></text>
   </g>
   
   <rect x="14" y="14" width="1252" height="332" rx="16" fill="url(#as)" pointer-events="none"/>

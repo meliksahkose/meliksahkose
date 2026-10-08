@@ -90,7 +90,7 @@ const baseCss = (h) => `
     ${t(184, 64, 800, C.amber, 6, "İBRAHİM MELİKŞAH KÖSE", 'filter="url(#glow)"')}
     <line x1="330" y1="214" x2="${w - 330}" y2="214" stroke="${C.dim}" stroke-width="1.5"/>
     ${t(262, 25, 700, C.hi, 4, "CO-FOUNDER @ MELBERLABS  ·  SOFTWARE ENGINEER", 'filter="url(#glow)"')}
-    ${t(310, 17, 400, C.dim, 3, `&gt; SOFTWARE ENGINEERING @ IŞIK UNIVERSITY  ·  LB #45 @ IŞIK CHARGERS <tspan class="cur" fill="${C.amber}">█</tspan>`)}
+    ${t(310, 17, 400, C.dim, 3, `&gt; AI &amp; AUTOMATION  ·  LB COACH @ IŞIK CHARGERS <tspan class="cur" fill="${C.amber}">█</tspan>`)}
   </g>
   ${overlay(w, h, "a")}
 </svg>`,
@@ -100,28 +100,46 @@ const baseCss = (h) => `
 // ─────────────────────────── projeler (terminal + kartlar ortak veri) ───────────────────────────
 const projects = [
     {
-        id: "ocupy", name: "OCUPY", status: "SHIPPING", url: "https://ocupyapp.melberlabs.com",
+        id: "ocupy", name: "OCUPY", status: "LIVE", url: "https://ocupyapp.melberlabs.com",
         term: "territory game: close a loop, own the ground",
         desc: ["Run or ride a loop and close it; the", "ground inside becomes yours."],
         stack: "Expo · FastAPI · PostGIS",
     },
     {
-        id: "manastra", name: "MANASTRA", status: "SHIPPING", url: "https://manastra.melberlabs.com",
-        term: "affirmations + AI companion, 90-sec ritual",
-        desc: ["Affirmations shaped around your life,", "plus an AI companion you can talk to."],
+        id: "manastra", name: "MANASTRA", status: "LIVE", url: "https://manastra.melberlabs.com",
+        term: "affirmations + AI coach, 90-sec ritual",
+        desc: ["Affirmations shaped around your life,", "plus an AI coach you can talk to."],
         stack: "Expo · Node.js · LLM",
     },
     {
-        id: "nightbook", name: "NIGHTBOOK", status: "SHIPPING", url: "https://nightbook.melberlabs.com",
+        id: "kelvia", name: "KELVIA", status: "LIVE", url: "https://github.com/meliksahkose/kelvia-app", show: "case study",
+        term: "AI skincare: INCI label -> compatibility",
+        desc: ["Scan an ingredient label, get a skin", "compatibility score + clash alerts."],
+        stack: "Expo · OCR · AI",
+    },
+    {
+        id: "dreamvia", name: "DREAMVIA", status: "LIVE", url: "https://melberlabs.com",
         term: "dream journal + dream map, on-device",
         desc: ["Write dreams while they're fresh and", "watch your dream map take shape."],
         stack: "Expo · on-device · private",
     },
     {
-        id: "glowmate", name: "GLOWMATE", status: "SHIPPING", url: "https://glowmate.melberlabs.com",
-        term: "AI skincare: INCI label -> compatibility",
-        desc: ["Scan an ingredient label, get a skin", "compatibility score + conflict alerts."],
-        stack: "Expo · OCR · AI",
+        id: "tutrix", name: "TUTRIX", status: "LIVE", url: "https://melberlabs.com",
+        term: "find sports lessons and coaches",
+        desc: ["Find sports lessons and coaches near", "you, all in one app."],
+        stack: "iOS · Android",
+    },
+    {
+        id: "astrio", name: "ASTRIO", status: "LIVE", url: "https://github.com/meliksahkose/astrio-app", show: "case study",
+        term: "star map & planets, 10 languages",
+        desc: ["Point your phone at the night sky:", "stars, planets, constellations."],
+        stack: "Expo · Skia · Supabase",
+    },
+    {
+        id: "teneffus", name: "TENEFFÜS", status: "LIVE", url: "https://github.com/meliksahkose/teneffus-app", show: "case study",
+        term: "LGS exam prep, 3,600+ questions",
+        desc: ["Prep for Türkiye's LGS exam with", "3,600+ original practice questions."],
+        stack: "Expo · Supabase · Python",
     },
     {
         id: "sideline", name: "SIDELINE", status: "LIVE", url: "https://chargers.melberlabs.com",
@@ -130,22 +148,10 @@ const projects = [
         stack: "Next.js · Postgres · Docker",
     },
     {
-        id: "silua", name: "SILUA", status: "BUILDING",
-        term: "AI virtual try-on",
-        desc: ["AI virtual try-on: see an outfit on", "you before you buy it."],
-        stack: "Expo · FastAPI · Python",
-    },
-    {
-        id: "teneffus", name: "TENEFFÜS", status: "BUILDING",
-        term: "LGS exam prep for 8th graders",
-        desc: ["Prep for Türkiye's LGS exam: practice,", "progress tracking and study plans."],
-        stack: "Expo · Supabase",
-    },
-    {
-        id: "astrio", name: "ASTRIO", status: "BUILDING",
-        term: "AR night-sky guide",
-        desc: ["Point your phone at the night sky:", "stars, planets, constellations in AR."],
-        stack: "Expo · AR · TypeScript",
+        id: "engine", name: "CONTENT ENGINE", status: "LIVE", url: "https://github.com/meliksahkose/melberlabs-content-engine", show: "case study",
+        term: "AI content engine, 100-150 pieces/day",
+        desc: ["AI pipeline that plans, edits, voices", "and posts 100–150 pieces a day."],
+        stack: "Python · ffmpeg · Remotion · AI",
     },
 ];
 const pill = { LIVE: "   LIVE   ", SHIPPING: " SHIPPING ", BUILDING: " BUILDING ", FIELD: " ON FIELD " };
@@ -161,12 +167,12 @@ const pill = { LIVE: "   LIVE   ", SHIPPING: " SHIPPING ", BUILDING: " BUILDING 
         return left + ".".repeat(Math.max(3, cols - left.length - right.length)) + right;
     };
     const lines = [
-        { s: hdr + "2026.09".padStart(cols - hdr.length), c: C.hi, wt: 700 },
+        { s: hdr + "2026.10".padStart(cols - hdr.length), c: C.hi, wt: 700 },
         { s: "  " + "─".repeat(cols - 2), c: C.faint },
         ...projects.map((p) => ({ s: row(p.id === "teneffus" ? "teneffüs" : p.id, p.term, pill[p.status]), status: p.status })),
-        { s: row("linebacker", "#45 · Işık Chargers defense", pill.FIELD), status: "FIELD" },
+        { s: row("lb-coach", "linebackers · Işık Chargers", pill.FIELD), status: "FIELD" },
         { s: "" },
-        { s: "  8 products · 2 founders · 12 languages · shipping weekly", c: C.dim },
+        { s: "  9 products · 2 founders · 12 languages · shipping weekly", c: C.dim },
     ];
     const cmd = "./status --all";
     const top = 104;
@@ -194,7 +200,7 @@ const pill = { LIVE: "   LIVE   ", SHIPPING: " SHIPPING ", BUILDING: " BUILDING 
 
     out(
         "assets/terminal.svg",
-        `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-label="System status: Ocupy, Manastra, Nightbook and GlowMate shipping; Sideline live; Silua, Teneffüs and Astrio in development">
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-label="System status: Ocupy, Manastra, Kelvia, DreamVia, Tutrix, Astrio, Teneffüs, Sideline and the content engine are live">
   <style>${fontFace(400, 700)}${baseCss(h)}
   </style>
   ${screen(w, h, "t")}
@@ -215,13 +221,13 @@ const pill = { LIVE: "   LIVE   ", SHIPPING: " SHIPPING ", BUILDING: " BUILDING 
 // ─────────────────────────── proje kartları ───────────────────────────
 for (const p of projects) {
     const w = 560, h = 230;
-    if ((p.stack.length + (p.url ? p.url.length - 8 + 2 : 11)) * 14 * CH > w - 88 - 24) throw new Error("kart dar: " + p.id);
+    if ((p.stack.length + (p.show ? p.show.length + 2 : p.url ? p.url.length - 8 + 2 : 11)) * 14 * CH > w - 88 - 24) throw new Error("kart dar: " + p.id);
     for (const d of p.desc) if (d.length * 19 * CH > w - 88) throw new Error("açıklama uzun: " + p.id + " " + d);
     const hot = p.status === "LIVE";
     const label = p.status === "BUILDING" ? "IN DEVELOPMENT" : p.status;
     const pw = label.length * 13 * CH + 13 * 0.12 * label.length + 34 + (hot ? 16 : 0);
     const px = w - 44 - pw;
-    const domain = p.url ? p.url.replace("https://", "") + " ↗" : "coming soon";
+    const domain = p.show ? p.show + " ↗" : p.url ? p.url.replace("https://", "") + " ↗" : "coming soon";
     out(
         `assets/cards/${p.id}.svg`,
         `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-label="${p.name}: ${esc(p.desc.join(" "))}">
